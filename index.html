@@ -1,58 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/estilos.css">
-        <title class="titulo">Boda de Clau y Jorge</title>
-    </head>
-    <body>
-        <div class ="container">
-            <h1>¡Nos Casamos! ❤️</h1>
-        <p>Acompáñanos en nuestro gran día</p>
-        <div id="countdown">
-            <div class="time">
-                <span id="days">00</span>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Boda de Clau y Jorge</title>
+</head>
+<body>
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card text-center p-4 shadow-lg" style="max-width: 500px; width: 100%;">
+        <h1 class="mb-3">¡Nos Casamos!</h1>
+        <p class="mb-3">Acompáñanos en nuestro gran día</p>
+        
+        <div id="countdown" class="row justify-content-center">
+            <div class="col-3 col-md-2 bg-secondary text-white rounded p-2 mx-1">
+                <span id="days" class="d-block h4 font-weight-bold">00</span>
                 <span>Días</span>
             </div>
-            <div class="time">
-                <span id="hours">00</span>
+            <div class="col-3 col-md-2 bg-secondary text-white rounded p-2 mx-1">
+                <span id="hours" class="d-block h4 font-weight-bold">00</span>
                 <span>Horas</span>
             </div>
-            <div class="time">
-                <span id="minutes">00</span>
+            <div class="col-3 col-md-2 bg-secondary text-white rounded p-2 mx-1">
+                <span id="minutes" class="d-block h4 font-weight-bold">00</span>
                 <span>Minutos</span>
             </div>
-            <div class="time">
-                <span id="seconds">00</span>
+            <div class="col-3 col-md-2 bg-secondary text-white rounded p-2 mx-1">
+                <span id="seconds" class="d-block h4 font-weight-bold">00</span>
                 <span>Segundos</span>
             </div>
         </div>
-        <p>Fecha: <strong>15 de Septiembre de 2025</strong></p>
-        <p>Lugar: <strong>Jardín Los Arcos</strong></p>
+
+        <p class="mt-4"><strong>Fecha:</strong> 15 de Septiembre de 2025</p>
+        <p><strong>Lugar:</strong> Jardín Los Arcos</p>
     </div>
+</div>
 
-    <script>
-        // Configurar la fecha de la boda
-        const weddingDate = new Date('2025-09-15T00:00:00').getTime();
+<!-- Bootstrap JS y dependencias -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const difference = weddingDate - now;
+<script>
+    // Configurar la fecha de la boda
+    const weddingDate = new Date('2025-11-15T17:30:00').getTime();
 
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const difference = weddingDate - now;
 
-            document.getElementById('days').innerText = days;
-            document.getElementById('hours').innerText = hours;
-            document.getElementById('minutes').innerText = minutes;
-            document.getElementById('seconds').innerText = seconds;
-        }
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown(); // Llamada inicial
-    </script>
-    </body>
+        document.getElementById('days').innerText = days;
+        document.getElementById('hours').innerText = hours;
+        document.getElementById('minutes').innerText = minutes;
+        document.getElementById('seconds').innerText = seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+</script>
+
+</body>
 </html>
